@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from meeting_transcriber.audio_devices import _parse_monitor_sources
+from meeting_transcriber.backends.linux import _parse_monitor_sources
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_pactl_output.txt"
 
