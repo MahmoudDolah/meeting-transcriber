@@ -10,11 +10,33 @@ Transcription runs fully offline via [faster-whisper](https://github.com/SYSTRAN
 
 ## System requirements
 
-Ubuntu 24.04+ (or derivatives) with PipeWire (the default audio server).
+### Ubuntu (24.04+, or derivatives, with PipeWire)
 
 ```bash
 sudo apt install ffmpeg pipewire-pulse pulseaudio-utils
 ```
+
+### macOS (Sonoma+)
+
+System-audio capture needs a virtual loopback driver — macOS/CoreAudio has no built-in
+"monitor" source the way PipeWire does — plus a one-time setup so audio still plays out loud
+while it's also being captured.
+
+```bash
+brew install ffmpeg blackhole-2ch
+```
+
+1. Open **Audio MIDI Setup.app** (Spotlight search for it).
+2. Click **+** in the bottom-left corner → **Create Multi-Output Device**.
+3. Check both your normal output (e.g. "Built-in Output" / your speakers or headphones) and
+   **BlackHole 2ch**.
+4. In **System Settings → Sound → Output**, select this new Multi-Output Device.
+5. When you first run `meeting-transcriber record`, macOS will prompt for microphone access
+   for your terminal app — grant it (or check **System Settings → Privacy & Security →
+   Microphone** if it doesn't prompt).
+
+Re-run `meeting-transcriber list-devices` if `--mic-source`/`--system-source` overrides stop
+working after plugging/unplugging an audio device — avfoundation device indices can shift.
 
 ## Install
 

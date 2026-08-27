@@ -6,6 +6,14 @@ class PactlNotFoundError(MeetingTranscriberError):
     pass
 
 
+class AVFoundationNotFoundError(MeetingTranscriberError):
+    pass
+
+
+class BlackHoleNotFoundError(MeetingTranscriberError):
+    pass
+
+
 class FFmpegNotFoundError(MeetingTranscriberError):
     pass
 
