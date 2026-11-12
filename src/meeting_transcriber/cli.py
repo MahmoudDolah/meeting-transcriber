@@ -15,6 +15,7 @@ from .transcriber import transcribe_file
 from .writer import write_transcript
 
 DEFAULT_OUTPUT_DIR = Path.home() / "meetings"
+OUTPUT_DIR_ENVVAR = "MEETING_TRANSCRIBER_OUTPUT_DIR"
 
 
 def _slugify(name: str) -> str:
@@ -70,6 +71,8 @@ def main() -> None:
     "-o", "--output-dir",
     type=click.Path(path_type=Path),
     default=DEFAULT_OUTPUT_DIR,
+    envvar=OUTPUT_DIR_ENVVAR,
+    show_envvar=True,
     help="Base directory to save recordings/transcripts under.",
 )
 def record(name: str | None, mic_source: str | None, system_source: str | None, output_dir: Path) -> None:
@@ -80,7 +83,7 @@ def record(name: str | None, mic_source: str | None, system_source: str | None, 
     except MeetingTranscriberError as e:
         raise click.ClickException(str(e))
 
-    meeting_dir = _meeting_dir(output_dir, name)
+    meeting_dir = _meeting_dir(output_dir.expanduser(), name)
     meeting_dir.mkdir(parents=True, exist_ok=True)
 
     try:

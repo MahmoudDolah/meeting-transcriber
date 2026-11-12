@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## [Unreleased]
+
+### Added
+- `MEETING_TRANSCRIBER_OUTPUT_DIR` environment variable to set the default `record --output-dir`.
+
 ## [0.1.0] - 2026-08-26
 
 Initial stable release. This tag is the rollback point for the Linux-only baseline, kept as a
