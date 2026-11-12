@@ -1,16 +1,30 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
 name = "meeting-transcriber"
-version = "0.1.0"
+version = "0.2.0"
 description = "Local, offline meeting recorder and transcriber (mic + system audio, Me/Others labels)"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Mahmoud Dolah" }]
 requires-python = ">=3.10"
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
 dependencies = [
     "faster-whisper>=1.0",
     "click>=8.1",
 ]
+
+[project.urls]
+Homepage = "https://github.com/MahmoudDolah/meeting-transcriber"
+Changelog = "https://github.com/MahmoudDolah/meeting-transcriber/blob/main/CHANGELOG.md"
 
 [project.scripts]
 meeting-transcriber = "meeting_transcriber.cli:main"
