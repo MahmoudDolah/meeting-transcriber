@@ -36,7 +36,18 @@ meeting-transcriber record --mic-source <name> --system-source <name>
 meeting-transcriber transcribe ~/meetings/20260703-143000-team-standup
 ```
 
-Recordings and transcripts are saved to `~/meetings/<timestamp>[-<name>]/`:
+Recordings and transcripts are saved to `~/meetings/<timestamp>[-<name>]/` by default. To save
+them somewhere else, pass `-o` / `--output-dir`, or set `MEETING_TRANSCRIBER_OUTPUT_DIR` (e.g. in
+your shell profile) to change the default; the flag takes precedence over the variable:
+
+```bash
+meeting-transcriber record --name "team-standup" -o ~/Documents/meeting-notes
+
+export MEETING_TRANSCRIBER_OUTPUT_DIR=~/Documents/meeting-notes
+meeting-transcriber record --name "team-standup"
+```
+
+Each meeting directory contains:
 
 ```
 mic.wav
