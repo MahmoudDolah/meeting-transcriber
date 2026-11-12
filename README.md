@@ -19,6 +19,12 @@ sudo apt install ffmpeg pipewire-pulse pulseaudio-utils
 ## Install
 
 ```bash
+pipx install git+https://github.com/MahmoudDolah/meeting-transcriber
+```
+
+Or from a local clone:
+
+```bash
 pipx install .
 ```
 
@@ -61,3 +67,7 @@ transcript.txt
 [00:00:04] Me: Hey, can you hear me okay?
 [00:00:06] Others: Yeah, loud and clear.
 ```
+
+## License
+
+[Apache 2.0](LICENSE)

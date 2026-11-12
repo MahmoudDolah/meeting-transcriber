@@ -2,10 +2,16 @@
 
 All notable changes to this project are documented in this file.
 
-## [Unreleased]
+## [0.2.0] - 2026-11-11
 
 ### Added
 - `MEETING_TRANSCRIBER_OUTPUT_DIR` environment variable to set the default `record --output-dir`.
+- Apache 2.0 license.
+- Release workflow: pushing a `v*` tag runs the tests, builds the wheel and sdist, publishes a
+  GitHub Release with them attached, and uploads them to PyPI.
+
+### Changed
+- `~` in `--output-dir` / `MEETING_TRANSCRIBER_OUTPUT_DIR` is now expanded to the home directory.
 
 ## [0.1.0] - 2026-08-26
 
