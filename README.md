@@ -19,13 +19,13 @@ sudo apt install ffmpeg pipewire-pulse pulseaudio-utils
 ## Install
 
 ```bash
-pipx install git+https://github.com/MahmoudDolah/meeting-transcriber
+pipx install meeting-transcriber
 ```
 
-Or from a local clone:
+To install the latest unreleased code from `main` instead:
 
 ```bash
-pipx install .
+pipx install git+https://github.com/MahmoudDolah/meeting-transcriber
 ```
 
 ## Usage
